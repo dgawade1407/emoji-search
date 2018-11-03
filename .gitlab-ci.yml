@@ -1,0 +1,18 @@
+variables: 
+ GIT_STRATEGY: none
+ JOB_URL: 'http://40.76.4.149:8010/job/oncommit_ci'
+ JOB_STATUS_URL: '${JOB_URL}/lastBuild/api/json'
+ 
+.shared_hidden_key: &shared 
+ 
+
+stages:
+ - build_trigger
+ 
+job2:
+  tags:
+    - saci@saci
+  stage: build_trigger 
+  script:
+  - curl -u admin:pruD1v0ps "http://40.76.4.149:8010/job/oncommit_ci/build?token=oncommit"
+  
